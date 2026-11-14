@@ -1,0 +1,30 @@
+# Cloudflare Tunnel Configuration for ChatAPP
+# Exposes Laravel HTTP (port 8000) and Laravel Reverb WebSockets (port 8080)
+#
+# Usage:
+# 1. Download cloudflared from https://github.com/cloudflare/cloudflared/releases
+# 2. Authenticate: cloudflared tunnel login
+# 3. Create tunnel: cloudflared tunnel create chatapp-tunnel
+# 4. Copy this file to config.yml and replace TUNNEL-UUID and your domain
+# 5. Run tunnel: cloudflared tunnel --config config.yml run
+
+tunnel: YOUR_TUNNEL_UUID_HERE
+credentials-file: C:\Users\YOUR_USER\.cloudflared\YOUR_TUNNEL_UUID_HERE.json
+
+ingress:
+  # Route 1: Laravel Reverb WebSockets (wss://ws.yourdomain.com)
+  - hostname: ws.yourdomain.com
+    service: http://127.0.0.1:8080
+    originRequest:
+      noTLSVerify: true
+      connectTimeout: 30s
+
+  # Route 2: Laravel API & Media Storage (https://api.yourdomain.com)
+  - hostname: api.yourdomain.com
+    service: http://127.0.0.1:8000
+    originRequest:
+      noTLSVerify: true
+      connectTimeout: 30s
+
+  # Default Catch-all rule (required by Cloudflare Tunnel)
+  - service: http_status:404

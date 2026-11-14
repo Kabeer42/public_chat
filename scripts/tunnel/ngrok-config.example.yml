@@ -1,0 +1,22 @@
+# Ngrok Configuration for ChatAPP
+# Exposes Laravel HTTP (port 8000) and Reverb WebSockets (port 8080)
+#
+# Usage:
+# 1. Install ngrok: winget install Inconshreveable.Ngrok
+# 2. Add authtoken: ngrok config add-authtoken <YOUR_TOKEN>
+# 3. Start both tunnels: ngrok start --all --config ngrok-config.yml
+
+version: "2"
+authtoken: YOUR_NGROK_AUTHTOKEN_HERE
+
+tunnels:
+  api:
+    proto: http
+    addr: 8000
+    schemes:
+      - https
+  ws:
+    proto: http
+    addr: 8080
+    schemes:
+      - https

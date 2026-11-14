@@ -1,0 +1,77 @@
+# -----------------------------------------------------------------------------
+# Environment & Sensitive Credentials
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+key.properties
+service-account.json
+google-services.json
+!google-services.example.json
+
+# -----------------------------------------------------------------------------
+# Databases & Local Data
+# -----------------------------------------------------------------------------
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.db
+database.sqlite
+/backend/database/database.sqlite
+/backend/storage/app/encrypted_media/*
+!/backend/storage/app/encrypted_media/.gitignore
+
+# -----------------------------------------------------------------------------
+# Dependencies & Package Managers
+# -----------------------------------------------------------------------------
+/backend/vendor/
+/backend/node_modules/
+/backend/public/build/
+/backend/public/hot/
+/backend/public/storage/
+.packages
+.pub/
+.pub-cache/
+
+# -----------------------------------------------------------------------------
+# Logs, Caches & Framework Temporary State
+# -----------------------------------------------------------------------------
+*.log
+/scripts/hotkey.log
+/backend/storage/logs/*.log
+/backend/storage/framework/sessions/*
+!/backend/storage/framework/sessions/.gitignore
+/backend/storage/framework/views/*
+!/backend/storage/framework/views/.gitignore
+/backend/storage/framework/cache/*
+!/backend/storage/framework/cache/.gitignore
+/backend/bootstrap/cache/packages.php
+/backend/bootstrap/cache/services.php
+.phpunit.result.cache
+
+# -----------------------------------------------------------------------------
+# Flutter & Android Build Artifacts
+# -----------------------------------------------------------------------------
+/frontend/build/
+/frontend/.dart_tool/
+/frontend/.flutter-plugins
+/frontend/.flutter-plugins-dependencies
+/frontend/android/.gradle/
+/frontend/android/local.properties
+/frontend/android/**/gradle-wrapper.jar
+/frontend/android/**/GeneratedPluginRegistrant.java
+/frontend/test_runner/.dart_tool/
+
+# -----------------------------------------------------------------------------
+# IDE & Operating System
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

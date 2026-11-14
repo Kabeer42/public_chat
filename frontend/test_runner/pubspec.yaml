@@ -1,0 +1,7 @@
+name: test_runner
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  cryptography: ^2.7.0
+dev_dependencies:
+  test: ^1.24.0
